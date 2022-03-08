@@ -1,0 +1,10 @@
+/functions/node_modules
+/node_modules
+.eslintrc.json
+/.firebase
+.firebaserc
+/content
+/functions/package-lock.json
+.env
+/other_talentform_versions
+firebase-tools-instant-win.exe

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Talentforms.com</title>
+    <link rel="shortcut icon" type="image/ico" href="Img/favicon.ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.css"/>
+<!-- Popper & Tippy -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+ </head>
+<body>
+  <!-- Menu & Nav (Logged in/logged out) -->
+    <div id="Start" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead sticky-top mb-auto">
+            <h2 class="masthead-brand" ><a class="nounderline" href="https://talentforms.com">TalentForms</a></h2>
+            <nav class="nav nav-masthead justify-content-center">
+                <li class="logged-in nav-link" style="display: none;">
+                    <a class="nounderline" href="#" data-toggle="modal" data-target="#modal-account">Account</a>
+                </li>
+                <li class="logged-in nav-link" style="display: none;">
+                    <a class="nounderline" id="logout" href="#">Logout</a>
+                </li>
+                <li class="logged-out nav-link" style="display: none;">
+                    <a class="nounderline" href="#" data-toggle="modal" data-target="#modal-login">Login</a>
+                </li>
+                <li class="logged-out nav-link" style="display: none;">
+                    <a class="nounderline" href="#" data-toggle="modal" data-target="#company-modal-signup">Company Signup</a>
+                </li>
+            </nav>
+        </header>
+
+<!-- Account Modal -->
+<div class="modal fade" id="modal-account" aria-hidden="true">
+    
+</div>
+
+<!-- Applicant Modal -->
+<div class="modal fade" id="modal-application" aria-hidden="true">
+  
+</div>
+
+<!-- Login Modal -->
+<div id="modal-login" class="modal fade"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login to Tableforms.com</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <div class="modal-body">
+            <form action="" class="form-style" id="login-form" >
+                <div class="form-group resetPasswordHide">
+                    <label for="login-email">Email address</label>
+                    <input type="email" class="form-control shadow-sm" id="login-email" required>
+                </div>
+                <div class="form-group resetPasswordHide">
+                    <label for="login-password">Password</label>
+                    <input type="password" class="form-control shadow-sm" id="login-password" required>
+                    <a href="#" id="forgotPassword">I forgot my password</a>
+                </div>
+                <div class="resetPasswordBox form-group">
+                    <label for="forgotten-password">Enter the email address where you want to send reset password link</label>
+                    <input type="email" class="form-control shadow-sm" id="mail" >
+                </div>
+                <div class="row text-center form-button resetPasswordHide">
+                  <div class="col">
+                    <button class="btn btn-success shadow-sm" >Login</button>
+                  </div>
+                  <div class="col">
+                    <button type="button" class="btn btn-secondary shadow-sm" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                <div class="resetPasswordBox">
+                <div class="form-group row text-center">
+                  <div class="col">
+                    <button type="button" id="resetPassword" class="btn btn-primary shadow-sm" >Reset password</button>
+                  </div>
+                  <div class="col">
+                    <button type="button" id="regretPasswordReset" class="btn btn-secondary shadow-sm">Back</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<!-- Company SignUp Modal -->
+<div id="company-modal-signup" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign up for a company account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <div class="modal-body">
+        <form action="" class="form-style" id="company-signup-form">
+                    <div class="form-group" >
+                        <input type="input" class="form-control shadow-sm" id="companyName" placeholder="Company name">     
+                    </div>
+                  <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon3">https://talentforms.com/</span>
+                    </div>
+                    <input type="text" class="form-control shadow-sm" id="companyUrlSlug" aria-describedby="basic-addon3" placeholder="Your talentform URL">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <input required type="email" class="form-control shadow-sm" id="companySignupEmail" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                  <div class="password-box">
+                  <input required type="password" class="form-control shadow-sm input-listener" id="companySignupPassword" placeholder="Choose password" onloadeddata="passwordCheck(this)" onclick="passwordCheck(this)">
+                  </div>
+                  <input required type="password" id="confirmPasswordInput" class="form-control shadow-sm input-listener" placeholder="Confirm password">
+                  <div id="pwreq" class="password-requirements" style="display:none;">
+                    <div id="upperCaseRequirement" class="requirement">
+                      <div class="fulfilled-symbol"></div>
+                      <small>Contains at least 1 upper case letter</small>
+                    </div>
+                    <div id="specialCharacterRequirement" class="requirement">
+                      <div class="fulfilled-symbol"></div>
+                      <small>Contains at least 1: @, #, $, %, ^, &, *, -, _</small>
+                    </div>
+                    <div id="passwordsMatchRequirement" class="requirement">
+                      <div class="fulfilled-symbol"></div>
+                      <small>Passwords must match</small>
+                    </div>
+                  </div>
+                  </div>
+                    <div class="row text-center form-button">
+                      <div class="col">
+                        <button id="submitBtn" class="btn btn-success shadow-sm">Sign up</button>
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn btn-secondary shadow-sm" data-dismiss="modal">Close</button>
+                      </div>
+                      </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+
+     
+        <main role="main" class="main"> 
+          <div class="onload-show text-center inner cover logged-out" style="display: none;">
+            <h1 class="cover-heading">Making Recruiting Easier</h1>
+            <p class="lead">Recruit without reading cover letters and resumes</p>
+            <div id="mc_embed_signup">
+              <button type="button" class="btn btn-lg btn-dark" href="#" data-toggle="modal" data-target="#company-modal-signup">Try Talentform for Free</button>
+              </div>
+              <div class="cover-container-7">
+                <small><p><a class="nounderline" href="#" data-toggle="modal" data-target="#modal-login">Have an account? Login here</a></p></small>
+              </div>
+          </div>
+
+
+   <!-- Application Table  -->
+          <div class="application-style logged-in" style="display: none;">
+            <div class="row-1 justify-content-between">
+              <div class="col application-h4-center">
+                <p>Applications</p>
+              </div>
+            </div>
+                <div class="table-responsive text-center">
+                  <table class="table table-bordered table">
+                    <thead>
+                      <tr>
+                        <th>Position</th>
+                        <th>Applicant</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table-application">
+                      
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+              <div class="onload-spinner d-flex justify-content-center">
+                <div class="onload-spinner spinner-border" role="status">
+                  <span class="onload-spinner sr-only">Loading...</span>
+                </div>
+              </div>
+            
+        <form id="saveTalentform" action="" class="floating-frame output-talentforms form-style logged-in" autocomplete="on" style="display: none;">
+          
+        </form>
+
+        </main>
+
+      <footer class="tf-footer mt-auto">
+            <div class="justify-content-center">
+                <p>Copyright 2020 <a class="nounderline" href="https://talentforms.com/">TalentForms</a></p>
+            </div>
+            <div class="justify-content-center">
+                <nav class="nav nav-footer justify-content-center">
+                    <a class="nav-link-footer nounderline" href="mailto:talentforms@gmail.com">Countact Us</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

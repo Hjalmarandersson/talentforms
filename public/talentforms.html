@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Talentforms</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles.css"/>
+        <!-- Popper & Tippy -->
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-functions.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+        <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyAOboigcweTf_R7prNadsAklQr_NuGh_Uc",
+        authDomain: "talent-forms.firebaseapp.com",
+        databaseURL: "https://talent-forms.firebaseio.com",
+        projectId: "talent-forms",
+        appId: "1:635419283024:web:9608930c864d20d0df4b55",
+        measurementId: "G-5QVSNDJJGP" };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+
+ </head>
+<body>
+
+
+
+  <!-- Menu & Nav (Logged in/logged out) -->
+    <div id="Start" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead sticky-top mb-auto">
+        </header>
+        <main role="main" class="main"> 
+            <form id="saveApplication" action="" class="output-application form-style">
+  
+            </form>
+        </main>
+
+      <footer class="tf-footer mt-auto">
+            <div class="justify-content-center">
+                <p>Made with <a class="nounderline" href="https://talentforms.com/">TalentForms</a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="/talentforms.js"></script>
+</body>
+</html>
