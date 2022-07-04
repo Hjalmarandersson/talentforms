@@ -1,5 +1,5 @@
 # talentforms
-Talentforms is not online anymore.
+Talenforms was an CRUD app where companies(users) could create an page for their company and then add/uppdate/delete job openings. Talentforms is not online anymore.
 ### How the landing page looked like for Talentforms.
 ![talentforms_1](https://user-images.githubusercontent.com/55764548/176427967-b5dd491c-80dd-4d45-94f9-514002249c0e.jpg)
 ### How Talentforms looked like when a company signed in.
