@@ -16,6 +16,7 @@ Talenforms was an CRUD app where companies(users) could create an page for their
 </p>
 
 ## Details/screenshots
+[Video about Talentforms](https://youtu.be/xZKuQAkxb-U?t=111)
 
 #### Landing page of Talentforms.
 ![talentforms_1](https://user-images.githubusercontent.com/55764548/176427967-b5dd491c-80dd-4d45-94f9-514002249c0e.jpg)
