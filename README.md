@@ -1,7 +1,7 @@
 # Talentforms
 
   <p>
-Talenforms was an CRUD app where companies(users) could create an page for their company and then add/uppdate/delete job openings that candidates could apply to. Talentforms is not online anymore. To get Talentforms to work locally again, changes to Firebase-code is needed due to deprecated functions in Firebase library. 
+Talentforms was an CRUD app where companies(users) could create an page for their company and then add/uppdate/delete job openings that candidates could apply to. Talentforms is not online anymore. To get Talentforms to work locally again, changes to Firebase-code is needed due to deprecated functions in Firebase library. 
   </p>
 
 ## Tech
